@@ -17,7 +17,7 @@ module Language.TypeScript.Pretty (
 ) where
 
 import Language.TypeScript.Types
-import Text.PrettyPrint
+import Text.PrettyPrint as PP
 
 renderDeclarationSourceFile :: [DeclarationElement] -> String
 renderDeclarationSourceFile = render . declarationSourceFile
@@ -82,7 +82,7 @@ renderAmbientDeclaration (AmbientInterfaceDeclaration i) = interface i
 renderAmbientDeclaration (AmbientEnumDeclaration _ name members) =
   text "enum" <+> text name <+> braces (sepEndBy comma enumMember members)
   where
-  enumMember (name, val) = text name <+> renderMaybe (\n -> char '=' <+> integer n) val
+  enumMember (name_, val) = text name_ <+> renderMaybe (\n -> char '=' <+> integer n) val
 renderAmbientDeclaration (AmbientModuleDeclaration _ name ds) =
   text "module"
   <+> sepBy dot text name
@@ -139,7 +139,7 @@ sepEndBy s f as = hsep $ map (\e -> f e <+> s) as
 
 renderEntityName :: EntityName -> Doc
 renderEntityName (EntityName Nothing e) = text e
-renderEntityName (EntityName (Just (ModuleName es)) e) = hcat (punctuate dot (map text es)) <> text e
+renderEntityName (EntityName (Just (ModuleName es)) e) = hcat (punctuate dot (map text es)) PP.<> text e
 
 interface :: Interface -> Doc
 interface (Interface _ name ps exts ty) =

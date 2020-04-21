@@ -48,7 +48,7 @@ import Text.Parsec
 import qualified Text.Parsec.Token as T
 import Text.Parsec.Language
 
-typeScriptDef =	javaStyle
+typeScriptDef = javaStyle
   { T.identStart = oneOf "_$" <|> letter
   , T.reservedNames = [
       "break", "do", "instanceof", "typeof", "case", "else", "new", "var", "catch", "finally", "return", "void", "continue", "for",
