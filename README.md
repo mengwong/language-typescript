@@ -1,6 +1,18 @@
 ## UNMAINTAINED
 
-forked by mengwong to fix some bugs induced by Haskell upgrading
+### language-typescript
+
+Haskell library for working with TypeScript Definition files
+
+### TODO
+
+Extend to work with .ts files generally
+
+Turn this into an input for pandoc
+
+## History
+
+forked by mengwong to fix some bit rot induced by Haskell upgrading
 
     language-typescript> configure (lib)
     language-typescript> Configuring language-typescript-0.0.4...
@@ -31,6 +43,3 @@ forked by mengwong to fix some bugs induced by Haskell upgrading
         Process exited with code: ExitFailure 1
     Progress 1/2
 
-### language-typescript
-
-Haskell library for working with TypeScript Definition files
